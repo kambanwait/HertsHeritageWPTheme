@@ -1,0 +1,58 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop.
+
+******************************************************************/
+
+.wrap {}
+
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+#menuContainer {
+    &:after {
+        left: 2.7em;
+    }
+    // make the menu logo a little bigger and bring it in a little from theleft
+    #menuBarLogo {
+        margin: 10px 10px 10px 4em;
+    }
+}
+
+
+/* PAGES */
+
+
+/* entry content */
+
+.entry-content {
+    &.fixedImage {
+        .h1 {
+            min-width: 700px;
+            display: block;
+        }
+        #downArrow {
+            bottom: 2%;
+        }
+    }
+    // Home Page
+    .page-template-page-home & {
+        #pageCaptionAndImage {
+            p {
+                margin: -80px auto 0 -263px;
+            }
+        }
+        &.blockTwo {
+            .text {
+                padding-top: 70px;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Super Large Monitor Stylesheet
+
+You can add some advanced styles here if you like. This kicks in
+on larger screens.
+
+******************************************************************/
+
+
+/* PAGES */
+
+
+/* entry content */
+
+.entry-content {
+    // Home Page
+    .page-template-page-home & {
+        &.blockTwo {
+            .text {
+                padding-top: 120px;
+            }
+        }
+    }
+    &.fixedImage {
+        #downArrow {
+            bottom: 20%;
+        }
+    }
+}

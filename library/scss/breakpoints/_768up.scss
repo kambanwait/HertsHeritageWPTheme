@@ -1,0 +1,458 @@
+/******************************************************************
+Site Name: Herts Heritage
+Author: Kam Banwait / Scripted Pixels ltd
+Stylesheet: Base Mobile Stylesheet
+******************************************************************/
+
+
+/*********************
+GENERAL STYLES
+*********************/
+
+body {}
+
+p {
+    font-size: 1.1aem;
+}
+
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+    // width: 760px;
+}
+
+
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+    #top-header {
+        #logo {
+            width: 200px;
+        }
+        #chimney {
+            max-width: 133px;
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+#menuContainer {
+    overflow: visible;
+    max-height: 60px;
+    z-index: 10;
+    &:hover {
+        background-color: rgba($black, 0.9);
+    }
+    &:after {
+        // create black triangle after/udner logo
+        border-right: 50px solid transparent;
+        border-left: 50px solid transparent;
+        border-top: 40px solid rgba($black, 0.75);
+        position: absolute;
+        content: ' ';
+        z-index: -1;
+        left: 1.4em;
+        height: 0;
+        top: 100%;
+        width: 0;
+    }
+    // hide the mobile menu toggle
+    #menuToggle {
+        display: none;
+    }
+    // make the menu logo a little bigger and bring it in a little from theleft
+    #menuBarLogo {
+        margin: 10px 10px 10px 45px;
+        position: relative;
+        height: 60px;
+        width: 55px;
+    }
+    // put the nav to the right of the bar
+    nav {
+        float: right;
+    }
+    // remove borders etc
+    ul {
+        padding-right: 1.75em;
+        border: none;
+        // bring the menu inline and within the black area
+        li {
+            display: inline-block;
+            border: none;
+            &:hover {
+                a {
+                    text-decoration: underline;
+                }
+            }
+            &.current_page_item {
+                &:before {
+                    // remove grey triangle on current page from desktop +
+                    display: none;
+                }
+                a {
+                    text-decoration: underline;
+                }
+            }
+            a {
+                line-height: 4.4;
+                font-size: 14px;
+                padding: 0 1em;
+                height: 60px;
+            }
+        } // li
+    } // ul
+} // #menuContainer
+
+/*********************
+PAGE STYLES
+*********************/
+
+.entry-content {
+    .text {
+        &::before,
+        &::after {
+            height: 50px;
+            width: 50px;
+        }
+    }
+    &.fixedImage {
+        .h1 {
+            min-width: 600px;
+            display: block;
+        }
+        #downArrow {
+            display: block;
+        }
+    }
+    h1 {
+        display: none;
+    }
+    // 1st block, feature, to have full width image
+    .feature {
+        img {
+            max-width: 100%;
+        }
+    }
+    &.blockTwo,
+    &.blockThree,
+    &.blockFour,
+    &.blockFive {
+        .section-wrapper {
+            flex-direction: row;
+            flex-wrap: no-wrap;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .text,
+        img {
+            position: relative;
+            align-self: center;
+            display: block;
+            display: initial;
+            margin: 0 auto;
+            width: 50%;
+        }
+    }
+    #pageCaptionAndImage {
+        img {
+            width: 100%
+        }
+    }
+    // Home page
+    .page-template-page-home & {
+        &.feature {
+            .section-wrapper {
+                position: relative;
+                max-width: 1200px;
+                margin: 0 auto;
+                display: block;
+            }
+            .text {
+                background: url('../images/green-house-cnr.png') no-repeat;
+                background-position: bottom left;
+                background-size: auto 150px;
+                text-align: right;
+            }
+            #pageCaptionAndImage {
+                background-color: rgba(24, 40, 52, 1);
+                img {
+                    margin: 0 auto;
+                }
+                p {
+                    max-width: 75%;
+                }
+            }
+            h4,
+            p {
+                display: inline-block;
+                max-width: 65%;
+            }
+            h4 {
+                width: 100%;
+            }
+        }
+        #pageCaptionAndImage {
+            p {
+                display: block;
+                span {
+                    color: $green;
+                }
+            }
+            &.animateIn p {
+                // fadein text area
+                -webkit-animation: fadein 1.5s forwards;
+                /* Safari, Chrome and Opera > 12.1 */
+                -moz-animation: fadein 1.5s forwards;
+                /* Firefox < 16 */
+                -ms-animation: fadein 1.5s forwards;
+                /* Internet Explorer */
+                -o-animation: fadein 1.5s forwards;
+                /* Opera < 12.1 */
+                animation: fadein 1.5s forwards;
+                -webkit-animation-delay: 0s;
+                /* Chrome, Safari, Opera */
+                animation-delay: 0s;
+            }
+        }
+        &.blockTwo {
+            .text {
+                align-self: stretch;
+                padding-top: 30px;
+            }
+            .text h4 {
+                margin-left: 0.25em;
+            }
+            .text h5 {
+                margin-left: 0.4em;
+            }
+            .text p {
+                margin-left: 0.5em;
+            }
+        }
+        &.blockThree {
+            img {
+                order: 0;
+            }
+            .text {
+                order: 1;
+            }
+        }
+        &.blockFour {
+            .text {
+                display: initial;
+                padding-right: 1em;
+                padding-left: 1em;
+                margin: 1em auto;
+            }
+            .text,
+            .text::before,
+            .text::after {
+                border: none;
+            }
+        }
+    } // home page
+    // Who We Are page
+    .page-template-page-who-we-are & {
+        &.blockOne {
+            #pageCaptionAndImage {
+                background-color: rgba(24, 40, 52, 1);
+                img {
+                    margin: 0 auto;
+                }
+            }
+            .section-wrapper {
+                position: relative;
+                max-width: 1200px;
+                margin: 0 auto;
+                display: block;
+            }
+            .text {
+                background: url('../images/white-house-cnr.png') no-repeat;
+                background-position: bottom right;
+                background-size: auto 150px;
+                margin: 1em;
+                padding: 0;
+                p,
+                h1,
+                h6 {
+                    max-width: 60%;
+                }
+            }
+        }
+        &.blockTwo {
+            .text,
+            .text::before,
+            .text::after {
+                border: none;
+            }
+            .text {
+                h5,
+                h4,
+                p {
+                    padding-left: 1em;
+                }
+                h4 {
+                    padding-left: 0.7em;
+                }
+            }
+        }
+    }
+    // Our Services 
+    .page-template-page-our-services & {
+        &.feature {
+            min-height: 100px;
+            #pageCaptionAndImage {
+                background-color: rgba(24, 40, 52, 1);
+                img {
+                    margin: 0 auto;
+                }
+            }
+            .section-wrapper {
+                position: relative;
+                max-width: 1200px;
+                margin: 0 auto;
+                display: block;
+            }
+            .text {
+                background: url('../images/green-house-cnr.png') no-repeat;
+                background-position: bottom left;
+                background-size: auto 150px;
+                text-align: right;
+                min-height: 225px;
+            }
+            h1,
+            h6 {
+                display: inline-block;
+                max-width: 65%;
+            }
+            h1 {
+                width: 100%;
+            }
+            h6 {
+                max-width: 70%;
+            }
+        }
+        // specifics for block two
+        &.blockTwo {
+            .text {
+                padding: 1em;
+                margin: 0;
+            }
+            .text,
+            .text::before,
+            .text::after {
+                border: none;
+            }
+        }
+        // specifics for block three
+        &.blockThree {
+            .text {
+                min-height: 100%;
+                padding: 0;
+                width: 50%;
+            }
+            .text,
+            .text::before,
+            .text::after {
+                border: none;
+            }
+            // change the order of image/text
+            img {
+                // controls the order of image and text so they're reversed from HTML
+                order: 0;
+            }
+            .text {
+                // controls the order of image and text so they're reversed from HTML
+                order: 1;
+            }
+        }
+        &.blockFour {
+            .text {
+                padding: 1em;
+                margin: 0;
+            }
+            .text,
+            .text::before,
+            .text::after {
+                border: none;
+            }
+        }
+        &.blockFive {
+            img {
+                display: inherit;
+            }
+            .text {
+                padding: 1em;
+                margin: 0;
+            }
+            .text,
+            .text::before,
+            .text::after {
+                border: none;
+            }
+        }
+    }
+    // Contact Us Page
+    .page-template-page-contact-us & {
+        &.backgroundColor {
+            background-color: $green;
+            &.green {
+                background-color: $green;
+            }
+            &.grey {
+                background-color: $copyGrey;
+            }
+        }
+        #pageCaptionAndImage {
+            background-color: rgba(24, 40, 52, 1);
+            img {
+                margin: 0 auto;
+            }
+        }
+        .section-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+        }
+        .text {
+            background: url('../images/green-house-cnr-right.png') no-repeat;
+            background-position: bottom right;
+            background-size: auto 150px;
+            margin: 1em;
+            padding: 0;
+            p,
+            h1 {
+                max-width: 50%;
+            }
+            p {
+                font-size: 1.3em;
+            }
+        }
+        .customersForm,
+        .contractorsForm {
+            form .left,
+            form .right {
+                display: inline-block;
+                vertical-align: top;
+                width: 49%;
+            }
+            form .right {
+                margin-left: 1%;
+            }
+        }
+    }
+}
